@@ -146,6 +146,14 @@ _map f = foldr (\x z -> (f x):z) []
 mejorSegun :: (a -> a -> Bool) -> [a] -> a
 mejorSegun f = foldr1 (\x z -> if f x z then x else z)
 
+-- llamar con acc=0
 sumasParciales :: (Num a) => a -> [a] -> [a]
-sumasParciales acc [] = [acc]
-sumasParciales acc (x:xs) = (acc - x) : xs
+sumasParciales acc [] = []
+sumasParciales acc (x:xs) = [acc+x] ++ (sumasParciales (acc+x) xs)
+
+sumaAlt :: (Num a) => a -> [a] -> a
+sumaAlt mult [] = 0
+sumaAlt mult (x:xs) = (mult*x) + sumaAlt (mult*(-1)) xs
+
+
+
