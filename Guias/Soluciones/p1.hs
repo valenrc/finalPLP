@@ -153,7 +153,73 @@ sumasParciales acc (x:xs) = [acc+x] ++ (sumasParciales (acc+x) xs)
 
 sumaAlt :: (Num a) => a -> [a] -> a
 sumaAlt mult [] = 0
-sumaAlt mult (x:xs) = (mult*x) + sumaAlt (mult*(-1)) xs
+sumaAlt mult (x:xs) = (mult*x) + sumaAlt (-mult) xs
 
+sumaAlt' :: (Num a) => [a] -> a
+sumaAlt' = foldr (-) 0
 
+sumaAltInverso :: (Num a) => [a] -> a
+sumaAltInverso = foldl (flip (-)) 0
 
+--- EJERCICIO 4 ---
+{-
+concatMap aplica una función a cada elemento de una lista y concatena los resultados
+concatMap :: (a -> [a]) -> [a] -> [b]
+
+take devuelve los primeros n elementos de una lista
+take :: Int -> [a] -> [a]
+
+drop elimina los primeros n elementos de una lista
+drop :: Int -> [a] -> [a]
+
+TO-DO
+-}
+
+--- EJERCICIO 5 ---
+
+entrelazar :: [a] -> [a] -> [a]
+entrelazar [] = id
+entrelazar (x:xs) = \ys -> if null ys
+  then entrelazar xs []
+  else x : head ys : entrelazar xs (tail ys)
+
+entrelazarFold :: [a] -> [a] -> [a]
+entrelazarFold = foldr (\x fr ys ->
+  if null ys then x: fr []
+  else x : head ys : fr (tail ys)) id
+
+--- EJERCICIO 6 ---
+recr :: (a -> [a] -> b -> b) -> b -> [a] -> b
+recr f z [] = z
+recr f z (x:xs) = f x xs (recr f z xs)
+
+sacarUna :: (Eq a) => a -> [a] -> [a]
+sacarUna elem = recr (\x xs z -> if x==elem then xs else x:z) []
+
+{-
+foldr no es adecuado para implementar sacarUna porque la funcion que utiliza no tiene forma de acceder a xs
+foldr sería adecuado para implementar sacarTodas que saca todas la apariciones de un elemento
+-}
+
+-- inserta un elemento en una lista ordenada crecientemente
+insertarOrdenado :: (Ord a) => a -> [a] -> [a]
+insertarOrdenado elem = recr (\x xs z -> if elem <= x
+  then elem:x:xs
+  else x:z) [elem]
+
+--- EJERCICIO 7 ---
+genLista :: a -> (a -> a) -> Integer -> [a]
+genLista x f 0 = []
+genLista x f cant = x : genLista (f x) f (cant-1)
+
+desdeHasta :: Integer -> Integer -> [Integer]
+desdeHasta d h = genLista d (+1) (h-d+1)
+
+--- EJERCICIO 8 ---
+mapPares :: (a -> a -> b) -> [(a,a)] -> [b]
+mapPares f xs = [f x y | (x,y) <- xs]
+
+armarPares :: [a] -> [b] -> [(a,b)]
+armarPares [] _ = []
+armarPares _ [] = []
+armarPares (x:xs) (y:ys) = (x,y) : armarPares xs ys
