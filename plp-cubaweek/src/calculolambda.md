@@ -1,33 +1,11 @@
+---
+script:
+  - path: mathjax-config.js
+  - url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+---
 
-# Indice
+Este documento son apuntes que tomé del libro 'The implementation of functional programming languages'[[2](#fuentes)] complementados con las teóricas[[1](#fuentes)] y bibliografía[[3](#fuentes)] sugerida de la materia.
 
-## Introduction to the Theory of Programming Languages
-- [ ] 1 - Terms and Relations
-
-## The implementation of functional programming languages
-- [ ] 2 - The lambda calculus
-- [x] 2.1 - Syntax
-- [x] 2.2 - Operational semantics
-- [x] 2.3 - Reduction order
-- [x] 2.4 - Recursive functions
-- [ ] 2.5 - Denotational semantics
-- [ ] 8 - Polymorphic type-checking
-- [ ] 8.1 - Informal notation for types
-- [ ] 8.2 - Polymorphism
-- [ ] 8.3 - Type inference
-- [ ] 8.4 - Intermediate language
-- [ ] 8.5 - How to find types
-- [ ] 8.6 - Summary of rules for correct typing
-- [ ] 9 - A type checker
--  [ ] 9.1 - Representation of programms
--  [ ] 9.2 - Representation of type expressions
--  [ ] 9.3 - Success and failure
--  [ ] 9.4 - Solving equations
--  [ ] 9.5 - Keeping track of types
--  [ ] 9.6 - New variables
--  [ ] 9.7 - The type checker
-
-# Notas 
 ## Cálculo lambda
 
 Se extiende el cálculo lambda puro
@@ -149,9 +127,9 @@ Notación: ```E[M/x]``` significa que se reemplazan todas las ocurrencias libres
 - ```(λx.E x) <-> E          ``` (η-conversión)
 
 
-#### Semántica operacional del calculo lambda extendido a naturales y booleanos
+#### Semantica operacional del calculo lambda extendido a naturales y booleanos
 
-La siguiente es la semantica operacional de $ \lambda ^{BN} $ (lambda calculus with booleans and naturals descrito en la teórica de la materia de la cátedra) esta extension es distinta a la que se describe en este libro, pero en algunos aspectos son iguales.
+La siguiente es la semantica operacional de $\lambda ^{BN}$(lambda calculus with booleans and naturals descrito en la teórica de la materia de la cátedra[1]) esta extension es distinta a la que se describe en este libro[2], pero en algunos aspectos son iguales.
 
 - ```(λx.M) N -> M[N/x]``` (β-reducción)
 - ```if true then M else N -> M``` (if_t)
@@ -164,6 +142,8 @@ Si ```M -> N``` entonces:
 - ```O M -> O N``` (app_r)
 - ```λx.M -> λx.N``` (fun)
 - ```if M then N else O -> if N then O else O``` (if_c)
+
+
 
 ### Orden de reducción
 
@@ -195,7 +175,7 @@ El CRT2 tiene que ver con una estrategia de reduccion llamada **estrategia de re
 Teorema:
 >Si ```E1 -> E2``` y ```E2``` está en forma normal, entonces existe una secuencia de reducciones de orden normal desde ```E1``` hasta ```E2```.
 
-*Nota: En la teórica de la materia, esta estrategia es call-by-name. Y call-by-name débil es normal order reduction pero con la restricción de que las expresiones que son abstracciones nunca se reducen, entonces, traduciendo los nombres de las teóricas:* 
+*Nota: En la teórica[1] de la materia, esta estrategia es call-by-name. Y call-by-name débil es normal order reduction pero con la restricción de que las expresiones que son abstracciones nunca se reducen, entonces, traduciendo los nombres de las teóricas:* 
 ***call-by-name**: normal order reduction*
 ***call-by-name débil**: call-by-name*
 
@@ -203,13 +183,6 @@ Teorema:
 #### Estrategias de reducción
 
 La noción de estrategia de reducción permite definir el orden en el cual se debe reducir un término.
-
-La relación de reducción (->) se define usando las reglas de semántica operacional y las reglas de congruencia.  
-Para implementar un lenguaje, necesitamos una relación de reducción que sea **determinística**.
-
-##### Determinismo
-Decimos que la semántica es determinista cuando cada término que no está en forma normal tiene **solo una forma de reducir**, es decir:  
-Si ```E -> E1``` y ```E -> E2``` entonces ```E1 = E2```.
 
 ##### Reducción débil
 
@@ -302,9 +275,9 @@ El contexto nos da tipos para variables libres dentro de la expresión M.
 
 Las reglas de tipado se definen inductivamente como:
 
-$$ \frac{}{\Gamma, x : \sigma \vdash x:\sigma}ax_v $$  
+$$\frac{}{\Gamma, x : \sigma \vdash x:\sigma}ax_v$$  
 
-$$ \frac{\Gamma, x:\sigma \vdash M:\tau}{\Gamma \vdash \lambda x:\sigma .M \ :\sigma \to \tau}\to_i $$  
+$$ \frac{\Gamma, x:\sigma \vdash M:\tau}{\Gamma \vdash \lambda x:\sigma .M \ :\sigma \to \tau}\to_i$$  
 
 $$ \frac{\Gamma \vdash M:\sigma \to \tau \quad \Gamma \vdash N:\sigma}{\Gamma \vdash MN : \tau}\to_e $$  
 
@@ -319,7 +292,7 @@ $$ \frac{}{\Gamma \vdash \text{Zero : Nat}}\text{zero}   \quad
 $$ \frac{\Gamma \vdash \text{M : Nat}}{\Gamma \vdash \text{pred(M) : Nat}}\text{pred} \quad
    \frac{\Gamma \vdash \text{M : Nat}}{\Gamma \vdash \text{succ(M) : Nat}}\text{succ} $$
 
-$$ \frac{\Gamma, x :\tau \vdash M : \tau }{\Gamma \vdash \mu x:\tau . \; M : \tau}\sf fix $$
+$$ \frac{\Gamma, x :\tau \vdash M : \tau }{\Gamma \vdash \mu x . M : \tau}\sf fix $$
 
 #### Teorema de preservación de tipos (subject reduction)
 
@@ -340,11 +313,11 @@ Un término M es fuertemente normalizable si no existe una secuencia infinita de
 #### Polimorfismo
 
 El polimorfismo es una técnica que permite definir funciones que pueden ser aplicadas a diferentes tipos de datos.  
-Sabemos que a la función ```λx.x``` se le deriva el tipo ```τ -> τ```, cualquiera sea el tipo ```τ```. Entonces podemos introducir una **variable de tipo** $ X $ y atribuirle a ```λx:X. x``` el tipo:  
+Sabemos que a la función ```λx.x``` se le deriva el tipo ```τ -> τ```, cualquiera sea el tipo ```τ```. Entonces podemos introducir una **variable de tipo** $X$ y atribuirle a ```λx:X. x``` el tipo:  
 
 $$ \forall X.\; X \to X $$
 
-Agregando una regla de tipado para la cual si $ M $ tiene tipo $ \forall X.\; \tau $, entonces $ M $ tiene tipo $ \tau[\sigma / X] $ para cualquier tipo $ \sigma $.
+Agregando una regla de tipado para la cual si $M$ tiene tipo $\forall X.\; \tau$, entonces $M$ tiene tipo $\tau[\sigma / X]$ para cualquier tipo $\sigma $.
 
 Se presentan dos sistemas para implementar el polimorfismo: **Sistema F** y **Polimorfismo let**.
 
@@ -358,18 +331,18 @@ Se agregan las siguientes reglas de tipado:
 $$ \frac{\Gamma \vdash M : \tau \quad X \notin \text{FV(}\Gamma)}{\Gamma \vdash M : \forall X. \tau} \forall_i \quad 
 \frac{\Gamma \vdash M : \forall X. \tau}{\Gamma \vdash M : \tau[\sigma / X]}\forall_e$$
 
-En la regla $ \forall_i $ se pide que la variable de tipo $ X $ no aparezca en las variables libres del contexto $ \Gamma $. Por ejemplo si en el contexto tenemos que $ \Gamma =  x : X $, entonces no podemos usar la variable $ X $, en cambio si está siendo ligada por otro cuantificador, si podemos. Por ejemplo $ \Gamma = x : \forall X. \tau $
+En la regla $\forall_i$ se pide que la variable de tipo $X$ no aparezca en las variables libres del contexto $\Gamma$. Por ejemplo si en el contexto tenemos que $\Gamma =  x : X$, entonces no podemos usar la variable $X$, en cambio si está siendo ligada por otro cuantificador, si podemos. Por ejemplo $\Gamma = x : \forall X. \tau$
 
-Si $ \Gamma = x_1 : \tau_1 , ... , x_n : \tau_n $, entonces $ \text{FV}(\Gamma)  = \text{FV}(\tau_1) \cup ... \cup \text{FV}(\tau_n)$ 
+Si $\Gamma = x_1 : \tau_1 , ... , x_n : \tau_n$, entonces $\text{FV}(\Gamma)  = \text{FV}(\tau_1) \cup ... \cup \text{FV}(\tau_n)$ 
 
 
-Se define $ \text{FV}(\tau) $ de manera inductiva sobre el conjunto de tipos: 
+Se define $\text{FV}(\tau)$ de manera inductiva sobre el conjunto de tipos: 
 $\tau ::=  X, Bool, \tau \to \tau, \forall X.\tau$.
  
-- $ \text{FV}(X) = \{X\} $
-- $ \text{FV}(Bool) = \emptyset $
-- $ \text{FV}(\tau \to \sigma) = \text{FV}(\tau) \cup \text{FV}(\sigma) $
-- $ \text{FV}(\forall X.\tau) = \text{FV}(\tau) - \{X\} $
+- $\text{FV}(X) = \{X\} $
+- $\text{FV}(Bool) = \emptyset $
+- $\text{FV}(\tau \to \sigma) = \text{FV}(\tau) \cup \text{FV}(\sigma) $
+- $\text{FV}(\forall X.\tau) = \text{FV}(\tau) - \{X\} $
 
 #### Polimorfismo let
 
@@ -379,17 +352,17 @@ Se extiende el calculo lambda con un nuevo término equivalente a (λx.M) N :
 Y con una nueva regla de semántica operacional (reduce igual que la expresion (λx.M) N):
 ``` let x = N in M -> M[N/x] ```
 
-Y con un  a nueva regla de tipado:
+Y con una nueva regla de tipado:
 
 $$ \frac{\Gamma \vdash N : \tau \quad \Gamma, x : \tau \vdash M : \sigma}{\Gamma \vdash \text{let } x = N \text{ in } M : \sigma} \text{let} $$
 
-Solo se permiten $ \forall $ en la variable ligada por el término **let**. Las variables ligadas por abstracciones no permiten tipos polimórficos.  
+Solo se permiten $\forall$ en la variable ligada por el término **let**. Las variables ligadas por abstracciones no permiten tipos polimórficos.  
 Los tipos ligados por cuantificadores ahora se llaman **esquemas de tipos**.
 
 ##### Esquemas de tipos
 
-Un esquema de tipo tiene forma $ \forall X_1 ... \forall X_n . [\tau] $  
-Con $ n \geq 0 $ y $ \tau $ un tipo. Por ejemplo, $ [\tau] $ es un esquema de tipo formado por el tipo $ \tau $ donde ninguna variable está cuantificada. 
+Un esquema de tipo tiene forma $\forall X_1 ... \forall X_n . [\tau]$  
+Con $n \geq 0$ y $\tau$ un tipo. Por ejemplo, $[\tau]$ es un esquema de tipo formado por el tipo $\tau$ donde ninguna variable está cuantificada. 
 
 Se define la gramática de tipos de la siguiente manera:
 
@@ -404,7 +377,7 @@ Se define un sistema de tipos polimorficos en el que cada término tiene una sol
 
 ##### Relación de orden entre esquemas de tipos
 
-Se define una relación de orden entre esquemas de tipos ($ \preceq $) de la siguiente manera:
+Se define una relación de orden entre esquemas de tipos ($\preceq$) de la siguiente manera:
 
 $$ e \preceq \forall X. e \text{ \;si\; } X \notin \text{FV}(e) $$  
 
@@ -414,13 +387,13 @@ $$ \forall X. e \preceq e\{X := \tau\}$$
 
 El cierre de un esquema de tipo respecto a un contexto es un esquema de tipo que cuantifica todas las variables libres de un tipo que no están en el contexto.
 
-Sea $ \Gamma $ un contexto, $ \tau $ un tipo y $ \vec{X} = \text{FV}(\tau) - \text{FV}(\Gamma)$.  
-Definimos el cierre de $ \tau $ respecto a $ \Gamma $ como:
+Sea $\Gamma$ un contexto, $\tau$ un tipo y $\vec{X} = \text{FV}(\tau) - \text{FV}(\Gamma)$.  
+Definimos el cierre de $ \tau $ respecto a $\Gamma$ como:
 
 $$ \vec{\Gamma}(\tau) = \forall \vec{X}. [\tau] $$ 
 
-Por ejemplo, el cierre de $ X \to Y \to Z $ con respecto a $ \Gamma = x : X, w: W $  
-es : $ \vec{\Gamma}(\tau) = \forall (\{X,Y,Z\} - \{X,W\}). [\tau] = \forall Y . \forall Z. [X \to Y \to Z]$
+Por ejemplo, el cierre de $X \to Y \to Z$ con respecto a $\Gamma = x : X, w: W$  
+es : $\vec{\Gamma}(\tau) = \forall (\{X,Y,Z\} - \{X,W\}). [\tau] = \forall Y . \forall Z. [X \to Y \to Z]$
 
 ##### Reglas de tipado
 
@@ -452,25 +425,30 @@ Si en el contexto encontramos ```x = M``` donde M no es un valor, entonces deber
 
 Un contexto es una función que mapea variables a términos. Escribimos un contexto como una **lista de pares** ``` x1 = M1, x2 = M2, ... xn = Mn ```.  
 Una variable `x` puede aparecer varias veces en un contexto, en ese caso, `x` toma la primer aparicion desde la derecha.   
-Si `Г` es un contexto y `x = t` un par, notamos `Г , <x = t` como el contexto `Г` extendido con `x = t`.
+Si `Г` es un contexto y `x = t` un par, notamos `Г , x = t` como el contexto `Г` extendido con `x = t`.
 
 ##### Thunk
 
-Un thunk es un par $ \lang M, \Gamma \rang $ formado por un término $ M $ y un contexto de evaluación $ \Gamma $. 
+Un thunk es un par $\langle M, \Gamma \rangle$ formado por un término $M$ y un contexto de evaluación $\Gamma$. 
 
 ##### Cierre
 
 Cuando queremos evaluar una abstracción ```(λx.M)``` en un contexto, el resultado debe ser el término ```M``` pero **cerrado** (la variable ```x``` debe estar ligada en el contexto).  
-Un cierre es un valor formado por una variable $ x $, un término $ M $ y un contexto $ \Gamma $ y se nota: $ \lang x, M, \Gamma \rang $
+Un cierre es un valor formado por una variable $x$, un término $M$ y un contexto $\Gamma$ y se nota: $\langle x, M, \Gamma \rangle$
 
 ##### Relación -> en CBN
 
-Definimos la relación $ \Gamma \vdash M \hookrightarrow V $ que se lee como: **el término M se interpreta como el valor V en el contexto Г**.  
+Definimos la relación $\Gamma \vdash M \hookrightarrow V$ que se lee como: **el término M se interpreta como el valor V en el contexto Г**.  
 
-#### Interpretación en Call-by-value (CBV)
-
-### Semántica denotacional
+### Semántica denotacional (TO-DO)
 
 La semantica operacional es una forma de definir el significado de una función de manera **dinámica**, como una serie de operaciones que se realizan para obtener un resultado, mas parecido a un algoritmo.
 
 La semántica denotacional es una forma de definir el significado de una función de manera **estática**, como un conjunto de asociaciones entre argumentos y sus valores correspondientes. Sirve para relacionar las funciones del cálculo lambda con la idea de funciones abstractas.
+
+### Fuentes
+[1] - Apunte de las clases de cálculo lambda, Alejandro Díaz-Caro (Jano).
+
+[2] - The Implementation of Functional Programming Languages, Simon L. Peyton Jones.
+
+[3] - Introduction to the theory of programming languages, G.Dowek y J.-J. Lévy.

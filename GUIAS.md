@@ -1,4 +1,4 @@
-### Practica 1 - Programación funcional
+ ### Practica 1 - Programación funcional
 - [x] Ejercicio 1
 - [x] Ejercicio 2
 - [x] Ejercicio 3
@@ -6,12 +6,12 @@
 - [x] Ejercicio 5
 - [x] Ejercicio 6
 - [x] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
-- [ ] Ejercicio 10
-- [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
+- [x] Ejercicio 8
+- [x] Ejercicio 9 - solo hice sumaMat
+- [x] Ejercicio 10 - falta redefinir generateFrom
+- [x] Ejercicio 11
+- [x] Ejercicio 12
+- [x] Ejercicio 13
 - [ ] Ejercicio 14
 - [ ] Ejercicio 15
 - [ ] Ejercicio 16
@@ -23,124 +23,124 @@
 - [ ] Ejercicio 22
 
 ### Practica 2 - Razonamiento ecuacional e inducción estructural
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
+- [x] Ejercicio 1
+- [x] Ejercicio 2
+- [x] Ejercicio 3
 - [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
+- [x] Ejercicio 5
+- [x] Ejercicio 6 - Hasta el iii
 - [ ] Ejercicio 7
 - [ ] Ejercicio 8
-- [ ] Ejercicio 9
-- [ ] Ejercicio 10
+- [x] Ejercicio 9
+- [x] Ejercicio 10
 - [ ] Ejercicio 11
-- [ ] Ejercicio 12
+- [x] Ejercicio 12 - Me trabé en el final
 
 ### Practica 3 - Demostracion en lógica proposicional
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
+- [x] Ejercicio 1
+- [x] Ejercicio 2
+- [x] Ejercicio 3 - Falta el iii
 - [ ] Ejercicio 4
 - [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
+- [x] Ejercicio 6 
+- [x] Ejercicio 7 - falta ii, iii, vii
 - [ ] Ejercicio 8
 - [ ] Ejercicio 9
 - [ ] Ejercicio 10
 - [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
-- [ ] Ejercicio 14
-- [ ] Ejercicio 15
-- [ ] Ejercicio 16
+- [ ] **Ejercicio 12** *
+- [ ] **Ejercicio 13** *
+- [x] **Ejercicio 14** *
+- [ ] **Ejercicio 15** *
+- [ ] **Ejercicio 16** *
 - [ ] Ejercicio 17
 - [ ] Ejercicio 18
-- [ ] Ejercicio 19
+- [ ] Ejercicio 19 
 
 ### Practica 4 - Cálculo lambda: tipado y semántica operacional
-- [ ] Ejercicio 1
+- [x] Ejercicio 1
 - [ ] Ejercicio 2
-- [ ] Ejercicio 3
-- [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
-- [ ] Ejercicio 10
-- [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
+- [x] Ejercicio 3
+- [x] Ejercicio 4
+- [x] Ejercicio 5
+- [x] Ejercicio 6
+- [x] Ejercicio 7
+- [x] Ejercicio 8
+- [x] Ejercicio 9 
+- [x] Ejercicio 10
+- [x] Ejercicio 11
+- [x] Ejercicio 12
+- [x] Ejercicio 13
 - [ ] Ejercicio 14
-- [ ] Ejercicio 15
-- [ ] Ejercicio 16
-- [ ] Ejercicio 17
+- [x] Ejercicio 15
+- [x] Ejercicio 16
+- [x] Ejercicio 17
 - [ ] Ejercicio 18
-- [ ] Ejercicio 19
-- [ ] Ejercicio 20
+- [x] Ejercicio 19
+- [x] Ejercicio 20 - hacer de nuevo para practicar prop. de progreso y pres. de tipos
 - [ ] Ejercicio 21
-- [ ] Ejercicio 22
+- [x] Ejercicio 22
 - [ ] Ejercicio 23
 - [ ] Ejercicio 24
 - [ ] Ejercicio 25
-- [ ] Ejercicio 26
+- [ ] Ejercicio 26 
 
 ### Practica 5 - Interpretación y compilación
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
+- [x] Ejercicio 1
+- [x] Ejercicio 2 - falta el ii
+- [x] Ejercicio 3
 - [ ] Ejercicio 4
-- [ ] Ejercicio 5
+- [x] Ejercicio 5 - falta iii y iv (hacer)
 - [ ] Ejercicio 6
 - [ ] Ejercicio 7
 - [ ] Ejercicio 8
-- [ ] Ejercicio 9
-- [ ] Ejercicio 10
-- [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
+- [x] Ejercicio 9
+- [x] Ejercicio 10
+- [x] Ejercicio 11
+- [ ] Ejercicio 12 - solo hice i y ii
+- [ ] Ejercicio 13 - solo hice el 1   
 - [ ] Ejercicio 14
 - [ ] Ejercicio 15
 - [ ] Ejercicio 16
-- [ ] Ejercicio 17
+- [ ] Ejercicio 17 
 
 ### Practica 6 - Lógica de primer orden
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
-- [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
+- [x] Ejercicio 1
+- [x] Ejercicio 2
+- [x] Ejercicio 3 - falta el 2
+- [x] Ejercicio 4
+- [x] Ejercicio 5
+- [x] Ejercicio 6
+- [ ] Ejercicio 7 - falta el iii
+- [x] Ejercicio 8 
+- [ ] Ejercicio 9 - faltan casi todos
 - [ ] Ejercicio 10
 - [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
-- [ ] Ejercicio 14
+- [ ] Ejercicio 12 - no se si lo hice bien. de todos modos no está completo
+- [x] Ejercicio 13
+- [x] Ejercicio 14
 - [ ] Ejercicio 15
-- [ ] Ejercicio 16
+- [ ] Ejercicio 16 
 
 ### Practica 7 - Resolución en lógica
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
-- [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
+- [x] Ejercicio 1 
+- [x] Ejercicio 2 
+- [ ] Ejercicio 3 
+- [ ] Ejercicio 4 
+- [ ] Ejercicio 5 
+- [x] Ejercicio 6 
+- [ ] Ejercicio 7 
+- [ ] Ejercicio 8 
+- [ ] Ejercicio 9  está OK pero faltan algunos puntos
 - [ ] Ejercicio 10
-- [ ] Ejercicio 11
-- [ ] Ejercicio 12
-- [ ] Ejercicio 13
+- [x] Ejercicio 11
+- [x] Ejercicio 12
+- [ ] Ejercicio 13 - rehacer
 - [ ] Ejercicio 14
 - [ ] Ejercicio 15
-- [ ] Ejercicio 16
-- [ ] Ejercicio 17
-- [ ] Ejercicio 18
+- [ ] Ejercicio 16 - lo hice mal
+- [x] Ejercicio 17
+- [x] Ejercicio 18
 - [ ] Ejercicio 19
 - [ ] Ejercicio 20
 - [ ] Ejercicio 21
@@ -148,18 +148,18 @@
 - [ ] Ejercicio 23
 - [ ] Ejercicio 24
 - [ ] Ejercicio 25
-- [ ] Ejercicio 26
+- [ ] Ejercicio 26 
 
 ### Practica 8 - Programación lógica
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
-- [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
+- [ ] Ejercicio 1 
+- [ ] Ejercicio 2 
+- [ ] Ejercicio 3 
+- [ ] Ejercicio 4 
+- [ ] Ejercicio 5 
+- [ ] Ejercicio 6 
+- [ ] Ejercicio 7 
+- [ ] Ejercicio 8 
+- [ ] Ejercicio 9  
 - [ ] Ejercicio 10
 - [ ] Ejercicio 11
 - [ ] Ejercicio 12
@@ -174,19 +174,19 @@
 - [ ] Ejercicio 21
 - [ ] Ejercicio 22
 - [ ] Ejercicio 23
-- [ ] Ejercicio 24
+- [ ] Ejercicio 24 
 
-### Practica 9 - Programacion orientada a objetos
-- [ ] Ejercicio 1
-- [ ] Ejercicio 2
-- [ ] Ejercicio 3
-- [ ] Ejercicio 4
-- [ ] Ejercicio 5
-- [ ] Ejercicio 6
-- [ ] Ejercicio 7
-- [ ] Ejercicio 8
-- [ ] Ejercicio 9
+### Practica 9 - Programación orientada a objetos
+- [ ] Ejercicio 1 
+- [ ] Ejercicio 2 
+- [ ] Ejercicio 3 
+- [ ] Ejercicio 4 
+- [ ] Ejercicio 5 
+- [ ] Ejercicio 6 
+- [ ] Ejercicio 7 
+- [ ] Ejercicio 8 
+- [ ] Ejercicio 9  
 - [ ] Ejercicio 10
 - [ ] Ejercicio 11
 - [ ] Ejercicio 12
-- [ ] Ejercicio 13
+- [ ] Ejercicio 13 
