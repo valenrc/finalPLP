@@ -252,7 +252,7 @@ mapPares :: (a -> b -> c) -> [(a,b)] -> [c]
 mapPares f = map (uncurry f)
 
 {-
--- https://stackoverflow.com/a/26285107
+-- https://stackoverflow.com/a/26285107s
 Ejemplo: (s = step; c = const [])
 armarParesFold [1,3] [2,4] =
 foldr s c [1,3] [2,4] =
