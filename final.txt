@@ -1,0 +1,60 @@
+1)haskell
+Dada la función
+iterList f z [] = z
+iterList f z (_:xs) = f z xs
+
+Definir foldr en términos de iterList sin usar recursión explícita
+Sugerencia: hacer que iterList devuelva una función [a] -> b la cual recibe una copia de la lista siendo procesada.
+ 
+ 
+2)deducción natural
+Se extienden las reglas de deduccion con: 
+
+Γ,σ ⊢ τ   Γ,τ ⊢ σ 
+-------------------<>i
+    Γ ⊢ σ <> τ
+
+Γ ⊢ σ <> τ   Γ ⊢ σ   Γ ⊢ ~τ
+-----------------------------<>e
+            Γ ⊢ ⊥
+            
+      Γ ⊢ τ <> σ
+----------------------<>swap
+      Γ ⊢ σ <> τ
+
+Demostrar:
+a) σ <> τ ⊢ σ -> τ
+b) σ <> τ ⊢ ~σ -> ~τ
+
+3 calculo lambda
+Se extiende el calculo lambda con un bloque de memoria que contiene un entero.
+Se agregan los términos:
+M = ... | inc, M | dec, M | test x, M
+
+Donde 
+inc, M incrementa el entero almacenado en memoria y evalúa M
+dec, M decrementa el entero almacenado en memoria y evalúa M
+test, x, M instancia x con true si el entero en memoria es igual a 0 o false si es distinto de 0 y evalúa M
+
+Se introduce la regla de evaluación:
+M @ k -> M' @ k'
+
+Ej. para P = dec, dec, dec, test x, x
+P @ 3 ->* true  @ 0
+P @ 2 ->* false @ -1
+
+a) extender las reglas de tipado para los nuevos términos
+b) extender las reglas de evaluación
+
+4) prolog y resolución
+Dado el programa:
+esArbol(nil).
+esArbol(bin(I, true, D)) :- esArbol(I), esArbol(D).
+esArbol(bin(I, false, D)) :- esArbol(I), esArbol(D).
+esSimétrico(nil)
+esSimétrico(bin(I,_,D) :- 
+esNoVacío(bin(_,_,_)).
+
+a) Que resultados devuelve la consulta ?- esArbol(A), esSimétrico(A), esNoVacío(A)
+b) Pasar las reglas a clausulas de horn
+c) Exhibir una refutación SLD
