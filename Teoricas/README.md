@@ -10,7 +10,7 @@
 [[Clase 07 - Compilación (inferencia de tipos y máquinas abstractas)]]
 - [x] Teórica 8
 [[Clase 08 - Lógica de primer orden]]
-- [ ] Teórica 9
+- [x] Teórica 9
 [[Clase 09 - Resolución lógica]]
 - [ ] Teórica 10
 [[Clase 10 - Resolución SLD y Prolog]]
