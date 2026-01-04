@@ -1,0 +1,3 @@
+- [Notas de cálculo lambda](https://gist.github.com/valenrc/8194593479f916412ecc6efaafe3da53)
+- [Reglas de inferencia para la deducción natural en lógica proposicional](https://gist.github.com/valenrc/33ac68243a5685572de6ee6b1cc0dfcf)
+- [Reglas de tipado para el cálculo lambda extendido](https://gist.github.com/valenrc/aaceac378e088badcca076180f9ad85e)
