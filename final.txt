@@ -1,7 +1,7 @@
 1)haskell
 Dada la función
 iterList f z [] = z
-iterList f z (_:xs) = f z xs
+iterList f z (_:xs) = f (iterList f z xs)
 
 Definir foldr en términos de iterList sin usar recursión explícita
 Sugerencia: hacer que iterList devuelva una función [a] -> b la cual recibe una copia de la lista siendo procesada.
